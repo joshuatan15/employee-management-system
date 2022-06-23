@@ -1,14 +1,14 @@
 <div>
   <h4>Employee Management System</h4>
   <mat-tab-group mat-align-tabs="start" [(selectedIndex)]="tabIndex"
-  (selectedTabChange)="setTabIndex($event)">
-    <mat-tab label="Add">
+  (selectedTabChange)="setTabIndex($event)" mat-stretch-tabs>
+    <mat-tab label="Add Employee">
       <app-employee></app-employee>
     </mat-tab>
-    <mat-tab label="View">
+    <mat-tab label="View Employee">
       <app-employees (next)="toEditTab($event)"></app-employees>
     </mat-tab>
-    <mat-tab label="Edit" [disabled]="!employeeId">
+    <mat-tab label="Edit Employee" [disabled]="!employeeId">
       <app-edit-employee [id]="employeeId"></app-edit-employee>
     </mat-tab>
   </mat-tab-group>

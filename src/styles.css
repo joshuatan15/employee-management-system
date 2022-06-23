@@ -9,12 +9,15 @@ h4 {
 }
 
 @media only screen and (min-width: 768px) {
-
   /* For desktop: */
   .form {
     max-width: 720px;
     margin: auto;
   }
+}
+
+.form, .container {
+    padding: 10px;
 }
 
 .button {
@@ -25,4 +28,8 @@ h4 {
 .icon:hover>i {
   cursor: pointer;
   color: black !important;
+}
+
+.mat-tab-label {
+    font-weight: 700!important;
 }
