@@ -1,0 +1,46 @@
+<div *ngIf="employee; else elseBlock" class="form">
+  <h4>Edit Employee record</h4>
+  <form #employeeForm="ngForm" (ngSubmit)="onUpdate()">
+    <div class="form-group">
+      <label>Name</label>
+      <input class="form-control" name="name" #name="ngModel" [(ngModel)]="employee.name" placeholder="Employee Name"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label>Designation</label>
+      <input class="form-control" name="designation" #name="ngModel" [(ngModel)]="employee.designation"
+        placeholder="Designation" required>
+    </div>
+
+    <div class="form-group">
+      <label>Salary</label>
+      <input class="form-control" name="salary" #name="ngModel" appPositiveNumberNoDecimal [(ngModel)]="employee.salary" placeholder="Salary"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label>Short Bio</label>
+      <textarea class="form-control" name="shortBio" #name="ngModel" [(ngModel)]="employee.shortBio"
+        placeholder="Short Bio" required>
+              </textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Date of Birth</label>
+      <input type="date" class="form-control" name="dob" #name="ngModel" [(ngModel)]="employee.dob"
+        placeholder="Date of Birth" required>
+    </div>
+
+    <div class="form-group float-right button">
+      <button type="submit" class="btn btn-success" [disabled]="!employeeForm.valid">
+        <i class="bi bi-plus"></i>Update Employee</button>
+    </div>
+  </form>
+</div>
+
+<ng-template #elseBlock>
+    <div>
+        <p>Please select an employee for the listing page to be edited.</p>
+    </div>
+</ng-template>
