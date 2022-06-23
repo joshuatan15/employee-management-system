@@ -15,6 +15,7 @@ import { EmployeesComponent } from './components/employees/employees.component';
 import { EditEmployeeComponent } from './modal/edit-employee/edit-employee.component';
 import { TruncatePipe } from './pipe/transform.pipe';
 import { PositiveNumberNoDecimalDirective } from './positive-number-no-decimal.directive';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,12 @@ import { PositiveNumberNoDecimalDirective } from './positive-number-no-decimal.d
     NgbModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [NgbActiveModal],
   bootstrap: [AppComponent]
